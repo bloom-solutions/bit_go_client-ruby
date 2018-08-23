@@ -31,14 +31,22 @@ end
 ```ruby
 client = BitGoClient.new(access_token: "v2-my-access-token")
 client.unlock(otp: "000000", duration: 600)
-response = client.sendcoins(
-  wallet_id: "59d2d3a4f68130b507c437e485763ab2",
-  address: "2N9JiEUYgRwKAw6FfnUca54VUeaSYSL9qqG",
+
+# https://www.bitgo.com/api/v2/#build-transaction
+response = client.build_transaction(
   coin: "tbtc",
-  amount: 1_000_000,
+  wallet_id: "59d2d3a4f68130b507c437e485763ab2",
+  recipients: [
+    address: "2N9JiEUYgRwKAw6FfnUca54VUeaSYSL9qqG"
+    amount: 1_000_000,
+  ],
   wallet_passphrase: "n9x47uid",
   fee_rate: 200
 )
+
+response.body["txHex"] # "010000000...8700000000"
+response.body["txInfo"]["changeAddresses"] # ["2MtLtTSsC98dF4zriFGvCfmce3A17Zz1McK"]
+response.body["feeInfo"]["fee"] # 3730
 ```
 
 ## Development
