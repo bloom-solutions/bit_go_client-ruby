@@ -1,0 +1,8 @@
+---
+host: "http://localhost:3080"
+access_token: bitgo-access-token
+tbtc_wallet_id: tbtc-wallet-id
+tbtc_wallet_passphrase: changeme
+tbtc_recipient: I will receive test tbtc
+tbtc_encrypted_keychain: |
+  {"id": "5lkjadshdaskj", "users": [".."], "pub": "xpub..."}
