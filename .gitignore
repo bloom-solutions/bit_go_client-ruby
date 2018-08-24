@@ -5,6 +5,8 @@
 /doc/
 /pkg/
 /spec/reports/
+/spec/fixtures/bit_go_express/env
+/spec/config.yml
 /tmp/
 
 # rspec failure tracking
